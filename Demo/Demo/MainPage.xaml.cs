@@ -26,13 +26,10 @@ namespace Demo
             var ScannerPage = new ZXingScannerPage();
 
             ScannerPage.OnScanResult += (result) => {
-                // Parar de escanear
                 ScannerPage.IsScanning = false;
-
-                // Alert com o código escaneado
                 Device.BeginInvokeOnMainThread(() => {
                     Navigation.PopAsync();
-                    DisplayAlert("Código escaneado", result.Text, "OK");
+                    DisplayAlert("Message is:", result.Text, "OK");
                 });
             };
 
